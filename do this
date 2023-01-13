@@ -1,0 +1,24 @@
+sudo apt install unbound sqlite3
+
+sudo nano /etc/default/ufw
+set IPV6 to no
+sudo ufw default deny outgoing
+sudo ufw default allow incoming
+
+```
+iptables -P OUTPUT DROP
+iptables -P INPUT DROP
+
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A OUTPUT -o lo -j ACCEPT
+
+iptables -I INPUT 1 -i lo -j ACCEPT
+iptables -A OUTPUT -p udp --dport 53 -j ACCEPT
+iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+
+iptables -A OUTPUT -d stackexchange.com -j ACCEPT
+
+iptables -A OUTPUT -j LOG
+```
+
+run this on startup
