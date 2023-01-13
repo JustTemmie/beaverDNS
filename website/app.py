@@ -26,6 +26,13 @@ def index():
     conn.close()
     return render_template('index.html', posts=posts)
 
+@app.route('/requests')
+def requests():
+    conn = get_db_connection()
+    requests = conn.execute('SELECT * FROM incoming ORDER BY requested DESC').fetchall()
+    conn.close()
+    return render_template('requests.html', posts=requests)
+
 @app.route('/<int:post_id>')
 def post(post_id):
     post = get_post(post_id)

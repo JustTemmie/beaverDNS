@@ -11,4 +11,7 @@ CREATE TABLE incoming (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     ip TEXT NOT NULL,
+    requested INTEGER NOT NULL,
+    url TEXT NOT NULL,
+    unique (ip)
 );

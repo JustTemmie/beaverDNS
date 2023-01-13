@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Welcome to BeavDNS {% endblock %}</h1>
+    {% for post in posts %}
+        <h2>{{ post['ip'] }} ( {{ post['url'] }} )</h2>
+        <p id="subtitle">requested {{ post['requested'] }} times</p>
+        <span class="badge badge-primary">{{ post['created'] }} UTC</span>
+        <hr>
+    {% endfor %}
+{% endblock %}
