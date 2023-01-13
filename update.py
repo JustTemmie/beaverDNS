@@ -3,7 +3,7 @@ import sqlite3
 import time
 
 while True:
-    connection = sqlite3.connect('website/database.db')
+    connection = sqlite3.connect(f'{dirname(__file__)}/website/database.db')
 
     posts = connection.execute('SELECT * FROM posts').fetchall()
 

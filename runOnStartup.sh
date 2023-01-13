@@ -1,3 +1,6 @@
+
+screen -dmS pythonUpdater bash -c 'python3 /BeavDNS/update.py'
+
 iptables -P OUTPUT DROP
 iptables -P INPUT DROP
 
