@@ -9,15 +9,15 @@ with open('website/schema.sql') as f:
 cur = connection.cursor()
 
 cur.execute("INSERT INTO posts (title, content) VALUES (?, ?)",
-            ('First Post', 'URL')
+            ('Titles', 'discord.com')
             )
 
 cur.execute("INSERT INTO posts (title, content) VALUES (?, ?)",
-            ('Second Post', 'URL')
+            ('I\'m so original', 'bjerkaker.tromsoskolen.no')
             )
 
 cur.execute("INSERT INTO incoming (ip, requested, url) VALUES (?, ?, ?)",
-            ('127.0.0.1', '1', 'yourself')
+            ('127.0.0.1', '1', 'loop back')
             )
 
 connection.commit()
